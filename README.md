@@ -33,10 +33,9 @@ Python 3.8+, no dependencies (pycryptodome, if installed, speeds up disc
 decryption). Run from the repository root.
 
 ```sh
-# the disc (RVZ via Dolphin's DolphinTool until wiikit reads RVZ itself)
-DolphinTool convert -i GAME.rvz -o build/dqs.iso -f iso
-python -m wiikit.disc build/dqs.iso --info
-python -m wiikit.disc build/dqs.iso --extract build/extract
+# the disc, straight from the RVZ (or .iso, .wbfs)
+python -m wiikit.disc GAME.rvz --info
+python -m wiikit.disc GAME.rvz --extract build/extract
 
 # the executable
 python -m wiikit.dol build/extract/sys/main.dol --info
@@ -45,9 +44,26 @@ python tools/sigmatch.py build/extract/sys/main.dol \
     --dsy <Dolphin>/Sys/totaldb.dsy \
     --elf <pc-victorious>/build/extract/files/Oscar_wii_final_versioned.elf \
     --out build/sig_guess.tsv
+python tools/names.py build/extract/sys/main.dol      # -> build/names.tsv
+
+# recompile, build, boot (clang, Ninja, SDL3 as for Victorious)
+python -m wiikit.recomp build/extract/sys/main.dol --out build/recomp --symbols build/names.tsv
+cmake -S build/recomp -B build/recomp-build -G Ninja -DCMAKE_CXX_COMPILER=clang++ \
+    -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS_RELEASE=-O1
+ninja -C build/recomp-build
+build/recomp-build/wiiboot build/extract          # fonts and dsp_coef.bin in build/fonts
 ```
 
 ## Status
+
+Session 2: **the game boots and draws.** The stripped executable is mapped
+(8 744 functions found by discovery, names from hand, debug strings and
+signatures), recompiled to C++ that compiles and links, and booted: from
+`__start` through the SDK's `OSInit`, the static constructors, VI, GX and
+AX to the main loop. The Wii Strap screen (natively 16:9) and the Square
+Enix logo draw right; the 3D title screen draws flat blue at 10 fps, next.
+In Dolphin, A turns out to set the centre swings are directed from: the
+press of the mouse scheme. The disc is read straight from the RVZ.
 
 Session 1: **analysis and plan.** The disc is read and mapped (3 751 files:
 FPK packs of NW4R resources and scripts, BRSAR/BRSTM sound, THP movies in

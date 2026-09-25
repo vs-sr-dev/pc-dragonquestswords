@@ -15,7 +15,8 @@ From play knowledge; every line to be confirmed in the code and in Dolphin
 | **Slash** | swing the Remote | the swing's direction sets the cut's angle on screen (horizontal, vertical, diagonals); the game draws the arc |
 | **Stab** (thrust) | push the Remote forward | lands at the cursor: the "depth" move, for weak points and some enemies |
 | **Shield** | hold B | the cursor becomes the shield and follows the pointer; blocks what it covers |
-| Special moves | a gauge, then A and a swing | `game/special_info.dat`; the shouts are streams (`zettai`, `syakunetsu`…) |
+| **A** | sets the centre | *seen in Dolphin, session 2*: A does not swing; it sets the point the next swings are directed from. The shield (hold B, the pointer moves it) behaves as expected |
+| Special moves | a gauge, then a swing | `game/special_info.dat`; the shouts are streams (`zettai`, `syakunetsu`…) |
 | Walk the rails, forks | d-pad / pointer | on rails: stop, turn back, choose a branch |
 | Menus, town, shops | pointer + A, B back | as in Victorious |
 | Mini-games | slash and stab patterns, darts, a lottery | `mini/slash_pattern0.dat`, `mini/stab_pattern.dat`, `mini_debug_darts.seq`, `mini_fukubiki.seq` |
@@ -41,11 +42,11 @@ because here the cursor is already on screen:
 | Mouse | Game | Why |
 |---|---|---|
 | move | the pointer | one to one, as in Victorious; the game's cursor, drawn by the game |
-| **left button: press, drag, release** | **slash** along the drag, through where the button went down | a direction is what a slash needs; the press point anchors it where the player aimed |
+| **left button: press, drag, release** | **A at the press** (the game's own centre), then a **slash** along the drag | the game already anchors swings at a point set by A: the press *is* A, the drag is the swing. The scheme and the game agree term for term |
 | **left button: click without dragging** | **stab** at the cursor | Silver's jab; a point is what a stab needs |
 | right button, held | B: the shield, moved by the mouse | the game's own behaviour, unchanged |
 | wheel forward (option) | stab | the "depth" axis, for players who want click-and-drag for slashes only |
-| middle button / Space | A (special moves, confirm) | |
+| Space | A alone (confirm in menus; re-centre without swinging) | |
 | W A S D, arrows | d-pad (rails, forks) | |
 | Esc | the port's pause box, as in Victorious | |
 

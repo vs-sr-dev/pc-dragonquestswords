@@ -57,9 +57,9 @@ What changes is how the recompiler and the hooks find their targets:
 | # | Phase | Checkable milestone |
 |---|---|---|
 | 0 | **Analysis** ✅ | disc, executable, libraries, input question, route (session 1) |
-| 1 | **Code map** | every text word classed (code of a unit, padding, data); `symbols.tsv` with the SDK, NW4R and MSL named; every hook target resolved; switch tables bounded; agreement with Ghidra's function list explained |
-| 2 | **Recompiler: coverage** | all units compile and link; the native self-test (the game's `sprintf`, 64-bit division, libm, `qsort`, `PSMTX*`, `memcpy`) passes through addresses from `symbols.tsv` |
-| 3 | **Runtime: boot** | `__start` to the game's main loop: `OSReport`'s SDK banner, the FPK reads through DVD, the strap screen's frames of GX commands. New: the early AX micro-code, IOS 21, the locked cache's DMA |
+| 1 | **Code map** ✅ (session 2; 21 hooks unnamed, none reached so far) | every text word classed (code of a unit, padding, data); `symbols.tsv` with the SDK, NW4R and MSL named; every hook target resolved; switch tables bounded; agreement with Ghidra's function list explained |
+| 2 | **Recompiler: coverage** ✅ compiles and links (session 2); the self-test still to port | all units compile and link; the native self-test (the game's `sprintf`, 64-bit division, libm, `qsort`, `PSMTX*`, `memcpy`) passes through addresses from `symbols.tsv` |
+| 3 | **Runtime: boot** ✅ to the main loop (session 2) | `__start` to the game's main loop: `OSReport`'s SDK banner, the FPK reads through DVD, the strap screen's frames of GX commands. New: the early AX micro-code, IOS 21, the locked cache's DMA |
 | 4 | **Graphics** | the strap and logos, the opening THP (`0_00_2*.thp`), the title, the town, the first battle; fog, Z textures, the `glib` post effects |
 | 5 | **Input** | pointer, buttons, shield (as Victorious); then swings: Dolphin experiment, synthetic motion in wiikit, the recogniser found, the gesture delivered there. Target: **the first dungeon, fought with the mouse** |
 | 6 | **Audio** | NW4R SND on AX: effects, sequences, voices from BRSTM streams, the movies' sound |

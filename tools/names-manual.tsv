@@ -1,0 +1,7 @@
+addr	name	evidence
+801E2B50	RealMode	clrlwi r3,r3,2; mtsrr0; MSR without IR/DR; rfi: the SDK's RealMode, first rfi reached at boot (session 2)
+802260A4	KPADRead	KPAD object order against Victorious's ELF; called by the game's input module (800167E8) as KPADRead(chan, buf, 16); walks samples of 0x84 bytes
+802267BC	KPADInit	KPAD object order; called once by the game's input setup (80016558)
+80226B18	KPADReset	KPAD object order (148 bytes, Victorious 160); called by the game's input setup
+80223ED0	KPADSetPosParam	KPAD object order: first of four 28-byte parameter setters, as in Victorious
+80223EEC	KPADSetAccParam	KPAD object order: second of the four setters, as in Victorious

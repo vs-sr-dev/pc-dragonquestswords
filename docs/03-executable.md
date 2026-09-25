@@ -77,8 +77,31 @@ library signatures) and in Victorious's symbolised ELF.
   nameless except where the port needs a name (input, the gesture
   recogniser, the frame loop), given by hand as in any RE project.
 * Not found by signature (versions differ): `KPADRead`, `WPADRead`,
-  `VIInit`, `__start` (at the entry, known). The KPAD/WPAD area is
-  80218C10–80223F24; `KPADRead` is found from its callers.
+  `VIInit`, `__start` (at the entry, known). Session 2 named them other
+  ways (below).
+
+## Discovery and names (session 2)
+
+`python -m wiikit.recomp build/extract/sys/main.dol --symbols build/names.tsv`
+finds 8 744 units (`wiikit/recomp/discover.py`), sizes 332 switch tables
+from the code (3 unresolved) and leaves no branch to an unknown target.
+No padding and no alignment separate functions here (starts are spread
+evenly mod 16; Victorious aligns most to 16 with zero padding), so
+reachability does most of the work.
+
+`tools/names.py` writes `build/names.tsv` from three sources, most trusted
+first: `tools/names-manual.tsv` (each name with its evidence), debug
+strings (36 names: WPAD, WUD, DVD, OS print their own names), signatures
+(1 467). Where they disagree the string wins: WPAD's three callback
+setters have one signature between them.
+
+KPAD prints nothing. Its functions follow its object's order, which is
+Victorious's order with the newer functions missing, and sizes that match
+one for one (`select_2obj_first` 488, `select_2obj_continue` 552,
+`clamp_stick_circle` 296...): `KPADRead` 802260A4, `KPADInit` 802267BC,
+`KPADReset` 80226B18. The game calls `KPADRead(chan, buf, 16)` at 800167E8.
+This SDK's `KPADStatus` is **0x84 bytes** (Victorious's 0xF0); the fields
+the runtime writes, up to 0x5F, are at the same offsets.
 
 ## Landmarks
 
