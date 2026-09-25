@@ -6,8 +6,11 @@
    or "stab"? Does it read KPAD's `acc`/`acc_speed`, or raw WPAD samples at
    200 Hz? How many directions does it distinguish? Does swing speed
    matter?
-2. **Does Dolphin's emulated Swing/Thrust work in this game?** If so, how
-   well on diagonals: the cheapest experiment of the project.
+2. **Does Dolphin's emulated Swing/Thrust work in this game?** Partly
+   answered (session 2): **yes, from mouse flicks**. Shift held plus a flick
+   of the mouse, fed to Dolphin's Swing, slashes in the game. Still open:
+   the numpad's fixed directions, diagonals, thrust (5, F, the wheel), and
+   the same flick with the left button held (A) instead of Shift.
 3. ~~What A does in battle~~: it sets the centre swings are directed
    from (Dolphin, session 2). Still open: must A be held during the
    swing, or does one press set the centre until the next? How is a

@@ -89,6 +89,11 @@ to the code that turns acceleration into "slash at angle θ, strength s" or
 angles, no pulse latency, no guessing. Costs reverse engineering in
 nameless code.
 
+*Session 2*: the first half of the experiment has answered. Shift held and
+a flick of the mouse, fed to Dolphin's emulated Swing (relative mouse axes
+× 4), slash in the game: synthetic motion from a mouse gesture is accepted.
+Route 1 is proven in principle.
+
 **The plan uses both, in that order.** 1 first, because it is cheap, it
 belongs in wiikit, and **Dolphin tells us on day one whether it works**:
 bind Dolphin's emulated Swing and Thrust to keys, play the first battle.
