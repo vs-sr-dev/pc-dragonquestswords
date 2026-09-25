@@ -13,8 +13,10 @@ Phase 4, graphics, with Dolphin next to the port; input and audio behind.
    title's menus.
 4. **The early AX** (wiikit): the overture already plays on a silent AX;
    the 2006 command list, with Dolphin's old AXWii as the reference.
-5. **Dolphin, still open** (`05-open-questions.md` 1-3): do the numpad
-   swings land by direction, diagonals, thrust, the wheel, the mouse flick
-   with the left button held; must A be held during a swing?
+5. **The stab**: Dolphin answered everything but the stab (slashes by
+   direction only, diagonals, A a press; `08-input.md`). No emulated motion
+   stabs, so read the recogniser: from `KPADRead`'s caller (800167E8) to
+   where acceleration becomes a slash or a stab, and what it tests for the
+   stab.
 6. The native self-test on the stripped DOL: `sprintf`, `PSMTX*`, `memcpy`
    through names from `names.tsv`.

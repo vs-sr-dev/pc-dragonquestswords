@@ -9,9 +9,10 @@
 2. **Does Dolphin's emulated Swing work in this game?** For slashes, yes
    (session 2): mouse flicks (Shift or the left button held) and the
    numpad's eight directions, diagonals included. **The stab does not
-   come**: Swing Forward (numpad 5, the wheel) slashes. Next try: T, a shake
-   on the Z axis only. The recogniser's own test for a stab is the real
-   answer (question 1).
+   come**: Swing Forward (numpad 5, the wheel) slashes, and so does a shake
+   on the Z axis alone (T). Neither of Dolphin's emulated motions makes the
+   acceleration the game takes for a push: the recogniser's own test for a
+   stab is the answer (question 1), and the first target of the input phase.
 3. ~~What A does in battle~~: it sets the centre the swing is directed
    from; a press and a movement, A need not be held (Dolphin, session 2).
    Still open: how is a special move entered?
