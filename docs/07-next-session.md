@@ -17,6 +17,8 @@ Phase 4, graphics, with Dolphin next to the port; input and audio behind.
    direction only, diagonals, A a press; `08-input.md`). No emulated motion
    stabs, so read the recogniser: from `KPADRead`'s caller (800167E8) to
    where acceleration becomes a slash or a stab, and what it tests for the
-   stab.
+   stab: first, whether it reads `dist`/`dist_speed` (KPADStatus 0x48-0x50),
+   as the hypothesis says. If so, the stab in the port is the pointer held
+   and `dist` shortened, with no motion to synthesise.
 6. The native self-test on the stripped DOL: `sprintf`, `PSMTX*`, `memcpy`
    through names from `names.tsv`.

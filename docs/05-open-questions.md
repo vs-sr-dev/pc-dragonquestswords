@@ -13,6 +13,14 @@
    on the Z axis alone (T). Neither of Dolphin's emulated motions makes the
    acceleration the game takes for a push: the recogniser's own test for a
    stab is the answer (question 1), and the first target of the input phase.
+   **Hypothesis** (from the game's own description, and how fickle the stab
+   was on the Wii): a stab is the Remote *approaching the sensor bar while
+   pointing at the same spot*, seen by the IR camera: the two dots spread,
+   KPAD's `dist` falls (`dist_vec`, `dist_speed` at 0x4C, 0x50), `pos`
+   stays; the least change of aim makes it a slash. Dolphin's swings move
+   the aim; the runtime's KPADRead holds `dist` at 2 m, so no stab can come
+   from either yet. In the port the stab would be: pointer held, `dist`
+   shortened over a few frames.
 3. ~~What A does in battle~~: it sets the centre the swing is directed
    from; a press and a movement, A need not be held (Dolphin, session 2).
    Still open: how is a special move entered?

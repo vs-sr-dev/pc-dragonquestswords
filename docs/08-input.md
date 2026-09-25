@@ -13,7 +13,7 @@ From play knowledge; every line to be confirmed in the code and in Dolphin
 |---|---|---|
 | Aim | the pointer (IR) | always on in battle; the cursor is where a stab lands |
 | **Slash** | swing the Remote | *seen in Dolphin, session 2*: only the direction counts. The cut runs the whole length of the screen along it, through the centre A set; diagonals are recognised; slow and fast swings cut the same, and the cut starts as soon as the direction is registered |
-| **Stab** (thrust) | push the Remote forward | lands at the cursor: the "depth" move, for weak points and some enemies. *Session 2*: Dolphin's Swing Forward (numpad 5, the wheel) gives a slash, not a stab, and so does a shake on the Z axis alone: the recogniser wants something neither emulated motion makes |
+| **Stab** (thrust) | push the Remote forward | lands at the cursor: the "depth" move, for weak points and some enemies. Likely seen by the IR camera, not the accelerometer: the Remote nearer the sensor bar, the aim unchanged (`05-open-questions.md` 2). *Session 2*: Dolphin's Swing Forward (numpad 5, the wheel) gives a slash, not a stab, and so does a shake on the Z axis alone: the recogniser wants something neither emulated motion makes |
 | **Shield** | hold B | the cursor becomes the shield and follows the pointer; blocks what it covers |
 | **A** | sets the centre | *seen in Dolphin, session 2*: A does not swing; it sets the point the swing is directed from, for aimed cuts (a vertical cut on the left). A press and a movement is enough: A need not be held. The shield (hold B, the pointer moves it) behaves as expected |
 | Special moves | a gauge, then a swing | `game/special_info.dat`; the shouts are streams (`zettai`, `syakunetsu`…) |
