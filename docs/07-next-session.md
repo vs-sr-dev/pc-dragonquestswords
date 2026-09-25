@@ -35,6 +35,13 @@ Mouse Middle, Drag Left`, `Raise = Left Shift`, `Raise Alt = Left Ctrl`;
 the port should write these defaults itself (its layer, or wiikit's
 default key text gaining Drag Left).
 
+wiikit `309832b` (another port's needs: the Classic in WPAD's own samples;
+draws in a row merged into one GL call; the disc's files sized from the FST
+instead of opened at boot; `WIIKIT_PROFILE=render`) leaves the generated
+C++ unchanged; the game boots to its Adventure Logs as before, and no
+longer opens every file of the disc at start (an old build sat past its
+time limit there while the antivirus scanned them).
+
 wiikit `b9db60f` (`--input keyboard` fixed: windows.h's `INPUT_KEYBOARD`
 shadowed it) changes nothing here; the game boots to its menus as before.
 
