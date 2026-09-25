@@ -23,11 +23,20 @@ renderer, AX, WPAD/KPAD, SYSCONF, `wiiboot`.
 | function discovery for stripped executables | 4 | entry points from calls, data pointers, flow; units without symbols |
 | switch tables bounded by their compare | 4 | |
 | hook lists resolved through a `symbols.tsv` | 4 | any stripped game |
-| the early AX micro-code | 5 | any game from 2006–08 |
-| locked-cache DMA | 5 | the THP decoder, and any game using `LC*` |
+| ~~the early AX micro-code~~ not needed: this 2007 SDK's AX has the later lists and PBs (session 3) | 5 | |
+| locked-cache DMA ✅ `fbdff55` (G3D's view matrices; session 3) | 5 | the THP decoder, and any game using `LC*` |
 | synthetic Remote motion (swing, thrust, shake) from mouse gestures | 5 | any Wii game with waggle |
 | fog, Z textures, more EFB copy formats | 5 | any 3D game |
 | BRSAR/BRSTM, THP readers | 2 | NW4R and SDK formats |
+
+Also added in session 3, found on the way: a frame's GX commands, EFB
+stages and draws as files (`WIIKIT_GXTRACE`, `WIIKIT_EFBDUMP`,
+`WIIKIT_DRAWLOG`), AX voices per frame (`WIIKIT_AXTRACE`); the vertex ring
+mapped and XF in a uniform block; `KPADStatus`'s size per SDK; audio
+without gaps under load (the record handed over outside the hardware lock,
+interrupts taken while waiting for the renderer, the AI waiting for its
+mix); VI timing from its registers and the EuRGB60 boot; draw-done raised
+when the renderer reaches it.
 
 FPK, `.seq`, the recogniser's hook and the mouse scheme's tuning stay here.
 

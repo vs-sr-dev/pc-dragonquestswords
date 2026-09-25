@@ -50,15 +50,21 @@
 
 ## Code
 
-10. **Frame rate**: 30 or 60 fps, fixed or variable? (The logos run at
-    the retrace rate; the title is too slow to tell.)
-13. **The title screen draws flat blue**: what does Dolphin show there, and
-    which GX feature is missing (fog, Z textures, EFB formats, TEV)?
-14. **77 000 draws a frame** at the title: a particle system, or display
-    lists replayed per object? Batching in the renderer, as Dolphin does.
+10. **Frame rate**: variable, up to 60 at 60 Hz (EuRGB60): the intro runs
+    60 in light scenes, 25-35 in heavy ones in the port; the game counts
+    time in retraces (session 3). What Dolphin holds in heavy scenes is
+    still to see.
 11. How the game picks the language on PAL (SYSCONF, or its own save).
     With SYSCONF English it reads `_gb` (session 2).
 12. Which `glib` effects are in use in normal play (DOF, glare, HDR,
     shadow, reflection, "DOW"), and what each asks of GX.
 
 ## Resolved
+
+* ~~The title screen draws flat blue~~ (13): the locked cache's DMA was
+  not emulated, and G3D's view matrices stayed zero (session 3).
+* ~~77 000 draws a frame~~ (14): a frame of the intro is 8 000-16 000
+  draws of G3D display lists; they cost 90 ms because every vertex upload
+  made the GPU wait. A mapped ring fixed it (session 3).
+* ~~The early AX~~: the 2007 SDK's AX already has the 2009 command lists
+  and parameter blocks (session 3).

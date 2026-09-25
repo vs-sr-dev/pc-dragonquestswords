@@ -103,3 +103,74 @@ Results:
 * wiikit: `rvz`, `recomp/discover`, `WIIKIT_DISCLOG`, the PAL boot. Every
   change checked on Victorious: its generated C++ unchanged, self-test 15
   of 15, boot to its main loop.
+
+## Session 3 — the game in 3D, in time with its music
+
+Goal (`07-next-session.md` of session 2): the flat blue title, the 77 000
+draws, `KPADStatus`, the early AX. It went through graphics, speed, the
+first menus and the sound, with Dolphin beside the port and the user
+listening.
+
+Results:
+
+* **Dolphin as the reference, from here**: a script starts Dolphin on the
+  RVZ and captures its window at given seconds. What the port called "the
+  title" is an in-engine intro first (the hero on a tower, the throne
+  room), then the logo on white, then "PRESS A+B".
+* **Every model was drawn through zero matrices** (`WIIKIT_GXTRACE`,
+  `WIIKIT_EFBDUMP`, `WIIKIT_DRAWLOG`, new in wiikit, showed 16 000 draws
+  leaving no trace, and XF position and normal matrices of 0). NW4R G3D
+  computes view matrices in the locked cache and stores them back with
+  `LCStoreBlocks`; the runtime ignored `mtspr DMA_L`. With the DMA
+  (wiikit `fbdff55`) the intro and the title match Dolphin, natively 16:9.
+* **10 fps to the game's own rate** (wiikit `4a6caf6`): the GPU waited on
+  a copy between every two draws (vertices uploaded with `glBufferSubData`
+  into a buffer in use). The vertex buffer is a ring mapped once, fenced in
+  quarters; XF moved from a storage buffer to a uniform block. Not
+  fill-rate: the same at 1x. `WIIKIT_PERF` reports the time presenting.
+* **The port's own layer**, `tools/dqs.cpp` (`tools/dqs.cmake`, CMake's
+  `WIIKIT_EXTRA`): this SDK's `KPADStatus` is 0x84 (wiikit `10eb63f`,
+  `wpad_set_kpad_status_size`). A+B passes the title; with an empty NAND
+  the game says so, creates a save (name, handedness) and starts the new
+  game's narration ("The world was at peace.").
+* **The AX is not the early one**: its command lists and parameter blocks
+  are the 2009 layout wiikit already mixes (a PB dump: addresses at 57–62,
+  ADPCM at 56, coefficients from 63; list SETUP, ADD_TO_LR, PBS,
+  COMPRESSOR, WM, OUTPUT, END). The sound played from session 2 on; it
+  crackled and ran out of time with the picture. Four causes, found one
+  under the other:
+  1. the game's thread handed the GX record to the renderer **holding the
+     hardware lock**, and waited there: AI blocks started late (wiikit
+     `8dc0d4f`: handed over outside the lock);
+  2. waiting there it took **no interrupts**, and the AI dropped every
+     block left without a new AX frame: 3 ms gaps. It now takes its
+     interrupts while it waits; the AI waits for the mix (up to 50 ms) and
+     catches up. The speed correction of the host stream is held to 0.5%
+     (2% after a stall): a drained queue had pulled it to −0.8%, heard as
+     a lower pitch (`1c5834b`);
+  3. **the intro ran 20% fast against the music**: the game chose PAL
+     50 Hz (VTR `1085`, HTR0 `4B6A01B0`) because the boot left the TV mode
+     at PAL (0x800000CC = 1), while the clock made 59.94 retraces a second.
+     The game picks 60 Hz only if `VIGetTvFormat()` is EuRGB60 (8001D01C;
+     progressive first, if SYSCONF and the cable allow). The boot now
+     writes 5 when SYSCONF's `IPL.E60` is set, as the IPL does, and the
+     clock takes the field's length from the VI registers (50 Hz PAL,
+     59.94 NTSC and EuRGB60). The game then runs 480 lines at 60 Hz, as in
+     Dolphin with PAL60 (`5b66083`);
+  4. **the last clicks were in the stream itself**, on AX frame boundaries
+     (the stream's position unchanged across them: stale buffer, not lost
+     frames). Draw-done was answered at once, so a game ahead of the
+     renderer waited inside a FIFO store while the guest OS thought it ran,
+     and the thread that reads the stream from the disc starved. PE's
+     finish interrupt now comes when the renderer reaches the draw-done
+     point: the game sleeps in `GXWaitDrawDone`, as with a real GP. A 60 s
+     recording went from 30 clicks to none; the user hears the beats on
+     the camera cuts, as in Dolphin.
+* **The frame rate is not fixed**: the intro runs up to 60 fps in light
+  scenes and 25–35 in heavy ones, on the retrace clock; the game measures
+  time in retraces, so the speed is right either way.
+* Every wiikit change checked on Victorious: generated C++ unchanged but
+  for the one `mtspr DMA_L`, self-test 15 of 15, 30 fps, its audio queue
+  at 20 ms, drawn as before. Its submodule follows (`fc2f401`).
+* Left: one stutter when a heavy scene first appears (likely shaders
+  compiled on first use); fog (type 2) is not drawn.
