@@ -12,10 +12,10 @@ From play knowledge; every line to be confirmed in the code and in Dolphin
 | Action | On the Wii | Notes |
 |---|---|---|
 | Aim | the pointer (IR) | always on in battle; the cursor is where a stab lands |
-| **Slash** | swing the Remote | the swing's direction sets the cut's angle on screen (horizontal, vertical, diagonals); the game draws the arc |
-| **Stab** (thrust) | push the Remote forward | lands at the cursor: the "depth" move, for weak points and some enemies |
+| **Slash** | swing the Remote | *seen in Dolphin, session 2*: only the direction counts. The cut runs the whole length of the screen along it, through the centre A set; diagonals are recognised; slow and fast swings cut the same, and the cut starts as soon as the direction is registered |
+| **Stab** (thrust) | push the Remote forward | lands at the cursor: the "depth" move, for weak points and some enemies. *Session 2*: Dolphin's Swing Forward (numpad 5, the wheel) gives a slash, not a stab: the recogniser wants something else (a push along the Remote's axis without the swing's rotation?) |
 | **Shield** | hold B | the cursor becomes the shield and follows the pointer; blocks what it covers |
-| **A** | sets the centre | *seen in Dolphin, session 2*: A does not swing; it sets the point the next swings are directed from. The shield (hold B, the pointer moves it) behaves as expected |
+| **A** | sets the centre | *seen in Dolphin, session 2*: A does not swing; it sets the point the swing is directed from, for aimed cuts (a vertical cut on the left). A press and a movement is enough: A need not be held. The shield (hold B, the pointer moves it) behaves as expected |
 | Special moves | a gauge, then a swing | `game/special_info.dat`; the shouts are streams (`zettai`, `syakunetsu`…) |
 | Walk the rails, forks | d-pad / pointer | on rails: stop, turn back, choose a branch |
 | Menus, town, shops | pointer + A, B back | as in Victorious |
@@ -62,7 +62,8 @@ Details to settle by playing, each a setting:
   option; the frozen cursor as the likely default.
 * **Diagonals and angles**: the drag gives any angle. The game may quantise
   to 4 or 8; the recogniser decides (below).
-* **Strength**: if the game grades a swing's speed, drag speed maps to it.
+* **Strength**: none to map. The game cuts the same at any speed
+  (session 2), so a drag only has to give a direction.
 * Left-handed: swap the buttons, as Silver did.
 
 A gamepad fits the same model later: the right stick flicked is a slash
@@ -89,7 +90,7 @@ to the code that turns acceleration into "slash at angle θ, strength s" or
 angles, no pulse latency, no guessing. Costs reverse engineering in
 nameless code.
 
-*Session 2*: the first half of the experiment has answered. Shift held and
+*Session 2*: the experiment has answered for slashes, not for stabs. Shift held and
 a flick of the mouse, fed to Dolphin's emulated Swing (relative mouse axes
 × 4), slash in the game: synthetic motion from a mouse gesture is accepted.
 Route 1 is proven in principle.

@@ -6,15 +6,20 @@
    or "stab"? Does it read KPAD's `acc`/`acc_speed`, or raw WPAD samples at
    200 Hz? How many directions does it distinguish? Does swing speed
    matter?
-2. **Does Dolphin's emulated Swing/Thrust work in this game?** Partly
-   answered (session 2): **yes, from mouse flicks**. Shift held plus a flick
-   of the mouse, fed to Dolphin's Swing, slashes in the game. Still open:
-   the numpad's fixed directions, diagonals, thrust (5, F, the wheel), and
-   the same flick with the left button held (A) instead of Shift.
-3. ~~What A does in battle~~: it sets the centre swings are directed
-   from (Dolphin, session 2). Still open: must A be held during the
-   swing, or does one press set the centre until the next? How is a
-   special move entered?
+2. **Does Dolphin's emulated Swing work in this game?** For slashes, yes
+   (session 2): mouse flicks (Shift or the left button held) and the
+   numpad's eight directions, diagonals included. **The stab does not
+   come**: Swing Forward (numpad 5, the wheel) slashes. Next try: T, a shake
+   on the Z axis only. The recogniser's own test for a stab is the real
+   answer (question 1).
+3. ~~What A does in battle~~: it sets the centre the swing is directed
+   from; a press and a movement, A need not be held (Dolphin, session 2).
+   Still open: how is a special move entered?
+7b. **The pointer in Dolphin sits above and left of the Windows cursor**
+   (same speed, an offset): Dolphin's IR calibration against the game's
+   pointer box (`KPADSetPosParam`). An emulator matter; the port maps the
+   mouse to the game's pointer one to one, as Victorious does, and checks
+   it on the title's menus.
 4. **Remote orientation**: does the game use roll (the pointer's angle) or
    tilt anywhere, e.g. for the shield?
 5. **Are the debug mini-games reachable** (`mini_debug_slash/stab/darts`)?
