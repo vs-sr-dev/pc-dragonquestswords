@@ -35,6 +35,14 @@ Mouse Middle, Drag Left`, `Raise = Left Shift`, `Raise Alt = Left Ctrl`;
 the port should write these defaults itself (its layer, or wiikit's
 default key text gaining Drag Left).
 
+wiikit `5a004bf` (another port's need: the Classic Controller, SDL
+gamepads, the connect callbacks called for Classic games) leaves the
+generated C++ unchanged; the game boots to the adventure-log menu as
+before, and now rumbles a plugged-in pad through `WPADControlMotor`
+(`WPADIsMotorEnabled` says yes). Its connect callback stays uncalled: it
+starts WPAD's own sampling, which crashed on a WPAD never started. A pad
+could later drive the Remote here (buttons; a stick as the pointer).
+
 wiikit `cb99bf8` (RG8 and GB8 EFB copies had their two channels swapped;
 another port's colour grading found it) draws this game as before; if the
 glib post effects (depth of field, glare) ever copy RG8/GB8, they now read
