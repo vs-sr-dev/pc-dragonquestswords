@@ -35,19 +35,19 @@ Mouse Middle, Drag Left`, `Raise = Left Shift`, `Raise Alt = Left Ctrl`;
 the port should write these defaults itself (its layer, or wiikit's
 default key text gaining Drag Left).
 
-wiikit `2216cd4` (RG8 and GB8 EFB copies had their two channels swapped;
+wiikit `cb99bf8` (RG8 and GB8 EFB copies had their two channels swapped;
 another port's colour grading found it) draws this game as before; if the
 glib post effects (depth of field, glare) ever copy RG8/GB8, they now read
 right.
 
-wiikit `2733ba3` (another port's needs: display lists and vertex buffers in
+wiikit `a66e681` (another port's needs: display lists and vertex buffers in
 MEM2, `mtspr WPAR` emptying the gather pipe, IOS replies delivered after the
 call returns, F12 GX trace, `WIIKIT_ICALLS`, an opt-in relative mouse)
 changes the generated C++ at the one `mtspr WPAR` (801DAF1C); the game boots
 to the adventure-log menu as before. The relative mouse could serve the
 sword swings (motion without the pointer leaving the window).
 
-wiikit `1168fd6` (another port's need: `KPADInitEx` and `KPADReadEx`
+wiikit `a07e7ab` (another port's need: `KPADInitEx` and `KPADReadEx`
 hooked) changes nothing here: this 2007 SDK has neither, the generated C++
 is unchanged, and the game boots to the adventure-log menu as before.
 
