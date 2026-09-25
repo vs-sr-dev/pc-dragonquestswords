@@ -91,6 +91,12 @@ Results:
   3D stage (`stg/038`, the sword model, `tex/title`, the overture playing
   on a silent AX), shows as flat dark blue at about 10 fps: 77 000 GX draws
   a frame, each one an OpenGL draw in the renderer.
+* **Dolphin, the rest of the input questions** (`08-input.md`): a slash
+  is a direction only, cut the whole length through the centre A set, at
+  any speed, diagonals included; A is a press, not held; mouse flicks with
+  the left button held slash. The stab is fickle: Swing Forward stabbed a
+  couple of times with the aim perfectly still, a Z shake never. The
+  hypothesis for session 3: the IR distance falling with the aim held.
 * Found on the way: this SDK's `KPADStatus` is 0x84 bytes (the runtime
   assumes Victorious's 0xF0), the game reads 16 samples a frame; the game
   uses the `_gb` packs for English.

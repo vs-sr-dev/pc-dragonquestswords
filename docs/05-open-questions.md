@@ -21,6 +21,11 @@
    the aim; the runtime's KPADRead holds `dist` at 2 m, so no stab can come
    from either yet. In the port the stab would be: pointer held, `dist`
    shortened over a few frames.
+   *Last test of session 2*: with the mouse perfectly still, Swing Forward
+   (F) **did stab, a couple of times**, on no condition the player could
+   tell; the Z shake (T) never did. A forward movement is needed (the shake
+   goes forth and back), and the stab is rare because the emulated swing
+   rarely leaves the aim still: consistent with the hypothesis, not a proof.
 3. ~~What A does in battle~~: it sets the centre the swing is directed
    from; a press and a movement, A need not be held (Dolphin, session 2).
    Still open: how is a special move entered?
