@@ -35,6 +35,11 @@ Mouse Middle, Drag Left`, `Raise = Left Shift`, `Raise Alt = Left Ctrl`;
 the port should write these defaults itself (its layer, or wiikit's
 default key text gaining Drag Left).
 
+wiikit `2216cd4` (RG8 and GB8 EFB copies had their two channels swapped;
+another port's colour grading found it) draws this game as before; if the
+glib post effects (depth of field, glare) ever copy RG8/GB8, they now read
+right.
+
 wiikit `2733ba3` (another port's needs: display lists and vertex buffers in
 MEM2, `mtspr WPAR` emptying the gather pipe, IOS replies delivered after the
 call returns, F12 GX trace, `WIIKIT_ICALLS`, an opt-in relative mouse)
