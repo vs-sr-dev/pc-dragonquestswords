@@ -35,6 +35,9 @@ Mouse Middle, Drag Left`, `Raise = Left Shift`, `Raise Alt = Left Ctrl`;
 the port should write these defaults itself (its layer, or wiikit's
 default key text gaining Drag Left).
 
+wiikit `b9db60f` (`--input keyboard` fixed: windows.h's `INPUT_KEYBOARD`
+shadowed it) changes nothing here; the game boots to its menus as before.
+
 wiikit `5a004bf` (another port's need: the Classic Controller, SDL
 gamepads, the connect callbacks called for Classic games) leaves the
 generated C++ unchanged; the game boots to the adventure-log menu as
