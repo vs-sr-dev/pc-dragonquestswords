@@ -35,6 +35,10 @@ Mouse Middle, Drag Left`, `Raise = Left Shift`, `Raise Alt = Left Ctrl`;
 the port should write these defaults itself (its layer, or wiikit's
 default key text gaining Drag Left).
 
+wiikit `1168fd6` (another port's need: `KPADInitEx` and `KPADReadEx`
+hooked) changes nothing here: this 2007 SDK has neither, the generated C++
+is unchanged, and the game boots to the adventure-log menu as before.
+
 Housekeeping: wiikit `93cfa20` (global SPRs, Remote speaker, drag and
 raise keys, disc log) is committed locally, not pushed (up to `5b66083`
 is on GitHub); pc-victorious `3f58adc`..`c4c0292` are local. wiikit is
