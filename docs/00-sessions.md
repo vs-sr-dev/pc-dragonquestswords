@@ -174,3 +174,29 @@ Results:
   at 20 ms, drawn as before. Its submodule follows (`fc2f401`).
 * Left: one stutter when a heavy scene first appears (likely shaders
   compiled on first use); fog (type 2) is not drawn.
+
+Later in session 3, with the user playing the port:
+
+* **The game plays**: the town, the tutorial's battle - field - battle
+  cycle; audio and video right but for faint light or dark lines on some
+  faces (also on the hero in the intro), not always.
+* **Swings from the mouse** (wiikit `93cfa20`): the user found that the
+  game takes a slash's direction from the pointer's movement and the
+  acceleration only as the trigger (Space, a shake, while moving the mouse
+  slashed that way). A new key-file source, `Drag Left`, is the left
+  button held with the mouse moving faster than 1.5 window heights a
+  second (held 120 ms): `Shake = Space, Mouse Middle, Drag Left` gives
+  "click to set the focus, drag to slash", with no slash from slow
+  movement. Confirmed by the user: slashes "much better".
+* **The Remote's speaker** is mixed into the TV's sound (the shield's
+  parries were silent): confirmed.
+* **The movies play** (`str/0_00_2w.thp`, with Fleurette's voice-over):
+  THP's decoder checks HID2's locked-cache enable on its own thread, and
+  the runtime kept HID0/1/2/4, WPAR and the DMA pair per guest thread; the
+  OS saves only GPRs, FPRs, CR, LR, CTR, XER, GQRs and SRRs, the rest are
+  the CPU's (`g_ppc_spr`). Found with `--watch` (the decode thread
+  suspending itself after `THPVideoDecode`, 802133E0, failed) and
+  `WIIKIT_DISCLOG=all` (ten frames read, then none). Confirmed by the user.
+* **Not yet: the Master Stroke** (raise the Remote, swing down). `Raise`
+  (Left Shift: acc.z +1, the pointer off the screen) is not recognised;
+  `Raise Alt` (Left Ctrl, acc.z -1) is untested.

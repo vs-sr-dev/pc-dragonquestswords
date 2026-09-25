@@ -95,6 +95,13 @@ a flick of the mouse, fed to Dolphin's emulated Swing (relative mouse axes
 × 4), slash in the game: synthetic motion from a mouse gesture is accepted.
 Route 1 is proven in principle.
 
+*Session 3, in the port*: the game takes a slash's **direction from the
+pointer's movement**; the acceleration is only the trigger. A shake (Space)
+while the mouse moves slashes that way. So the port's slash is the left
+button held and a fast drag (`Shake = Drag Left` in the key file): the
+press is A, the game's own centre, the drag the swing; slow movement never
+slashes. Route 1 without a pulse model: the existing shake suffices.
+
 **The plan uses both, in that order.** 1 first, because it is cheap, it
 belongs in wiikit, and **Dolphin tells us on day one whether it works**:
 bind Dolphin's emulated Swing and Thrust to keys, play the first battle.
