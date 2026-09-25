@@ -51,8 +51,6 @@ wiikit `a07e7ab` (another port's need: `KPADInitEx` and `KPADReadEx`
 hooked) changes nothing here: this 2007 SDK has neither, the generated C++
 is unchanged, and the game boots to the adventure-log menu as before.
 
-Housekeeping: wiikit `93cfa20` (global SPRs, Remote speaker, drag and
-raise keys, disc log) is committed locally, not pushed (up to `5b66083`
-is on GitHub); pc-victorious `3f58adc`..`c4c0292` are local. wiikit is
-public and must not name this port; push when the user says so, after
-the path audit.
+Housekeeping: wiikit is pushed up to `cb99bf8` (session 2 of another
+port, after the audit: no private port named in its messages). This
+port's commits since `4dae7e7` are local, as are pc-victorious's.
