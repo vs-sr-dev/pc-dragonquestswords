@@ -5,3 +5,6 @@ addr	name	evidence
 80226B18	KPADReset	KPAD object order (148 bytes, Victorious 160); called by the game's input setup
 80223ED0	KPADSetPosParam	KPAD object order: first of four 28-byte parameter setters, as in Victorious
 80223EEC	KPADSetAccParam	KPAD object order: second of the four setters, as in Victorious
+801DDD18	OSLoadContext	signature in Victorious's symbolised ELF, not in Dolphin's database; loads r1 and the GPRs from the context (lmw), sets MSR and SRR0/1, rfi: the one function a thread switch returns through
+8021C378	WPADSetSpeakerVolume	signature in Victorious's ELF only; clamps its argument to 0..0x7F and stores it in one global byte between OSDisableInterrupts and OSRestoreInterrupts
+8021C584	WPADSendStreamData	signature in Victorious's ELF only (0x210 bytes); hooked, it carries the Remote speaker's sounds the game plays (the shield's parries, heard in session 3)
