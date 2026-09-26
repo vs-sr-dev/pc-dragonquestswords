@@ -80,3 +80,7 @@ repointed to their published twins (the same code) before the first
 push, and the repository published at
 [vs-sr-dev/pc-dragonquestswords](https://github.com/vs-sr-dev/pc-dragonquestswords).
 pc-victorious's unpushed commits were repointed the same way and pushed.
+
+wiikit `688d1bf` (its README names another port, Conduit 2, published
+the same day) is documentation only: the submodule moved, nothing to
+check.
