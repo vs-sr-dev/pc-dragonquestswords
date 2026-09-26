@@ -69,6 +69,11 @@ wiikit `a07e7ab` (another port's need: `KPADInitEx` and `KPADReadEx`
 hooked) changes nothing here: this 2007 SDK has neither, the generated C++
 is unchanged, and the game boots to the adventure-log menu as before.
 
-Housekeeping: wiikit is pushed up to `cb99bf8` (session 2 of another
-port, after the audit: no private port named in its messages). This
-port's commits since `4dae7e7` are local, as are pc-victorious's.
+Housekeeping (2026-09-26, a session of publication only): wiikit is
+pushed up to `6fc2304`, whose README now names this port. This repository
+is prepared for GitHub: the README says where the port stands and how to
+play; with Dolphin's signature database alone (no Victorious ELF) the
+same 26 hooks resolve, and that build boots to the Adventure Logs. Four
+old commits here pinned wiikit SHAs from before its messages were
+reworded (`1a857e5`, `1168fd6`, `2216cd4`, `2733ba3`); they are to be
+repointed to their published twins before the first push.
