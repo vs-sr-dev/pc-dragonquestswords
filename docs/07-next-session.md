@@ -88,3 +88,9 @@ check.
 wiikit `0c71853` (its README names the fourth port, Arc Rise Fantasia,
 published the same day) is documentation only: the submodule moved,
 nothing to check.
+
+wiikit `d403beb` (GameCube discs and the GameCube's hardware, for a new
+GameCube port: the disc drive, ARAM, the controllers on SI, its clocks)
+leaves the Wii's paths as they were: checked, this game to its Adventure
+Logs with the script above, the same screens as the build before it, side
+by side.
