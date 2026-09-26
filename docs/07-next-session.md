@@ -84,3 +84,7 @@ pc-victorious's unpushed commits were repointed the same way and pushed.
 wiikit `688d1bf` (its README names another port, Conduit 2, published
 the same day) is documentation only: the submodule moved, nothing to
 check.
+
+wiikit `0c71853` (its README names the fourth port, Arc Rise Fantasia,
+published the same day) is documentation only: the submodule moved,
+nothing to check.
