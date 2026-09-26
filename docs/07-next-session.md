@@ -75,5 +75,8 @@ is prepared for GitHub: the README says where the port stands and how to
 play; with Dolphin's signature database alone (no Victorious ELF) the
 same 26 hooks resolve, and that build boots to the Adventure Logs. Four
 old commits here pinned wiikit SHAs from before its messages were
-reworded (`1a857e5`, `1168fd6`, `2216cd4`, `2733ba3`); they are to be
-repointed to their published twins before the first push.
+reworded (`1a857e5`, `1168fd6`, `2216cd4`, `2733ba3`); they were
+repointed to their published twins (the same code) before the first
+push, and the repository published at
+[vs-sr-dev/pc-dragonquestswords](https://github.com/vs-sr-dev/pc-dragonquestswords).
+pc-victorious's unpushed commits were repointed the same way and pushed.
