@@ -94,3 +94,9 @@ GameCube port: the disc drive, ARAM, the controllers on SI, its clocks)
 leaves the Wii's paths as they were: checked, this game to its Adventure
 Logs with the script above, the same screens as the build before it, side
 by side.
+
+wiikit `761b9a7` (the GameCube's AX micro-code, for the GameCube port; the
+port's Classic filter also on the GameCube's controllers; WIIKIT_AUDIODUMP's
+header written as it goes) leaves the Wii's paths as they were: checked,
+this game to its Adventure Logs with the script above, the same screens as
+the build before it, side by side, and its sound dumped: the same loudness.
