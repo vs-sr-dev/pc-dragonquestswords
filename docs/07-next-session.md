@@ -100,3 +100,7 @@ port's Classic filter also on the GameCube's controllers; WIIKIT_AUDIODUMP's
 header written as it goes) leaves the Wii's paths as they were: checked,
 this game to its Adventure Logs with the script above, the same screens as
 the build before it, side by side, and its sound dumped: the same loudness.
+
+wiikit `0d235b5` (its README names the fifth port, Mega Man X: Command
+Mission, published the same day) is documentation only: the submodule
+moved, nothing to check.
