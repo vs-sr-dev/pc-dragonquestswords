@@ -104,3 +104,10 @@ the build before it, side by side, and its sound dumped: the same loudness.
 wiikit `0d235b5` (its README names the fifth port, Mega Man X: Command
 Mission, published the same day) is documentation only: the submodule
 moved, nothing to check.
+
+wiikit `a5e96e5` (RSO modules recompiled with the executable, for the sixth
+port, Monster Hunter Tri; WPAD's data format and pointing camera,
+`/dev/usb/hid`, the CPU's EFB reads, the AI clock waiting for the DSP's
+interrupt) and `9674d07` (its README names that port): checked, this game
+to its Adventure Logs with the script above, the same screens as the build
+before it, side by side.
