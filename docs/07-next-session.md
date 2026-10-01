@@ -111,3 +111,8 @@ port, Monster Hunter Tri; WPAD's data format and pointing camera,
 interrupt) and `9674d07` (its README names that port): checked, this game
 to its Adventure Logs with the script above, the same screens as the build
 before it, side by side.
+
+wiikit `ae77320` (FIFO breakpoints stop the GP, the PI's FIFO pointers in
+32-byte units, `WPADGetInfo` and the Remote's auto-sleep, for a seventh
+port): checked, this game to its Adventure Logs with the script above, the
+same screens as the build before it, side by side.
