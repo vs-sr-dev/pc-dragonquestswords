@@ -116,3 +116,8 @@ wiikit `ae77320` (FIFO breakpoints stop the GP, the PI's FIFO pointers in
 32-byte units, `WPADGetInfo` and the Remote's auto-sleep, for a seventh
 port): checked, this game to its Adventure Logs with the script above, the
 same screens as the build before it, side by side.
+
+wiikit `cf9adb9` (EFB copies into RAM on a port's request, the CP's
+overflow behind a breakpoint) and `3166862` (its README names the seventh
+port, The Last Story): checked, this game to its Adventure Logs with the
+script above, the same screens as the build before it, side by side.
