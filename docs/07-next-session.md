@@ -69,6 +69,13 @@ wiikit `a07e7ab` (another port's need: `KPADInitEx` and `KPADReadEx`
 hooked) changes nothing here: this 2007 SDK has neither, the generated C++
 is unchanged, and the game boots to the adventure-log menu as before.
 
+wiikit `d9d14c0` (another port's needs, The Last Story's sound: no AI block
+inside the game's AI interrupt, `__AIDHandler` hooked; no wait for the
+renderer with interrupts off; out of Windows' power throttling; with
+`57169a2` before it, the Nunchuk and the shader programs kept on disk)
+boots to the Adventure Logs as before, with no audio block left without
+its frame (two before).
+
 Housekeeping (2026-09-26, a session of publication only): wiikit is
 pushed up to `6fc2304`, whose README now names this port. This repository
 is prepared for GitHub: the README says where the port stands and how to
